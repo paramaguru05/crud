@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+th,tr,td{
+    border: 2px solid black;
+    padding: 5px;
+    
+    
+}
+td{
+    text-align: center;
+}
+body{
+    font-size: 11px;
+}
+
+@layer components{
+    .input{
+        @apply bg-transparent  w-4/5  placeholder:text-white border-b-4 pb-2 border-green-500 outline-none cursor-pointer ;
+    }
+    .btn{
+        @apply bg-cyan-300 text-white px-3 py-1 rounded-md shadow-xl hover:shadow-cyan-300 font-semibold active:bg-cyan-400 hover:bg-cyan-500 w-20;
+    }
+
+}
