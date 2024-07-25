@@ -71,6 +71,22 @@ export const DataProvider=({children})=>{
                 }
             })
         }
+        if(isNaN(userAge)){
+            setError((previousState)=>{
+                return {
+                    ...previousState,age:true
+                }
+            })
+            success=false
+
+        }
+        else{
+            setError((previousState)=>{
+                return {
+                    ...previousState,age:false
+                }
+            })
+        }
         if(userCityName===""){
             
             setError((previousState)=>{
@@ -150,6 +166,22 @@ export const DataProvider=({children})=>{
                 }
             })
         }
+        if(isNaN(editUserAge)){
+            setEditError((previousState)=>{
+                return {
+                    ...previousState,age:true
+                }
+            })
+            editSuccess=false
+
+        }
+        else{
+            setEditError((previousState)=>{
+                return {
+                    ...previousState,age:false
+                }
+            })
+        }
         if(editUserCityName === ""){
             setEditError((previousState)=>{
                 return {
@@ -175,7 +207,11 @@ export const DataProvider=({children})=>{
                 userAge:editUserAge,
                 userCityName:editUserCityName
             }
-            data.splice(id,1,updatedUserDetails)
+            data[id].id=id+1
+            data[id].userName=updatedUserDetails.userName
+            data[id].userAge=updatedUserDetails.userAge
+            data[id].userCityName=updatedUserDetails.userCityName
+            console.log(data)
             localStorage.setItem("datas",JSON.stringify(data))
 
         }       
